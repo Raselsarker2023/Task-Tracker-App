@@ -18,7 +18,7 @@ class TaskModelViewset(viewsets.ModelViewSet):
     queryset = models.TaskModel.objects.all()
     serializer_class = serializers.TaskModelSerializer
     filter_backends = [SearchFilter]
-    search_fields = ['title', 'description', 'priority', 'status', 'Cancel_reason']
+    search_fields = ['title', 'description', 'priority', 'Cancel_reason']
     
     
 class ManagerViewset(viewsets.ModelViewSet):
