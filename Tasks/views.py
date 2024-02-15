@@ -2,13 +2,6 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from . import models
 from . import serializers
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
-from .models import TaskModel
-from django.shortcuts import get_object_or_404
-from .serializers import TaskModelSerializer
 from rest_framework.filters import SearchFilter
 
 
@@ -18,7 +11,7 @@ class TaskModelViewset(viewsets.ModelViewSet):
     queryset = models.TaskModel.objects.all()
     serializer_class = serializers.TaskModelSerializer
     filter_backends = [SearchFilter]
-    search_fields = ['title', 'description', 'priority', 'Cancel_reason']
+    search_fields = ['title', 'description', 'priority', 'status', 'Cancel_reason']
     
     
 class ManagerViewset(viewsets.ModelViewSet):
