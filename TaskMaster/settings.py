@@ -117,7 +117,7 @@ WSGI_APPLICATION = 'TaskMaster.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgres://task_tracker_app_user:mwid468mn1lmlZP0NdUlaBYE2P7JGHf1@dpg-cn7k58uv3ddc73cmvjog-a.oregon-postgres.render.com/task_tracker_app',
+        default='postgres://task_time_and_schedule_user:3i7ECK0JTxOn8m0fOhqR2oer2Bi6X7dA@dpg-cn7khlicn0vc738vi41g-a.oregon-postgres.render.com/task_time_and_schedule',
     )
 }
  
