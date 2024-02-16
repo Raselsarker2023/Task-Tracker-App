@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import environ
 env = environ.Env()
 environ.Env.read_env()
@@ -26,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Your secret key
-SECRET_KEY=env("SECRET_KEY")
+SECRET_KEY = env("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -68,8 +69,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'TaskMaster.urls'
-CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ['https://task-tracker-app-xycj.onrender.com']
 
 
 TEMPLATES = [
@@ -103,17 +102,24 @@ WSGI_APPLICATION = 'TaskMaster.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
 
+
+DATABASES = {
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://task_tracker_app_user:mwid468mn1lmlZP0NdUlaBYE2P7JGHf1@dpg-cn7k58uv3ddc73cmvjog-a.oregon-postgres.render.com/task_tracker_app',
+    )
+}
  
 REST_FRAMEWORK = { 
     'DEFAULT_FILTER_BACKENDS': [
@@ -163,7 +169,8 @@ USE_TZ = True
 
 
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 
 
