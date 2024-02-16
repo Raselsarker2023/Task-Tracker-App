@@ -69,6 +69,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'TaskMaster.urls'
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['https://task-tracker-app-1u0q.onrender.com']
 
 
 TEMPLATES = [
