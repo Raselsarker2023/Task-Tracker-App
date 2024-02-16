@@ -45,7 +45,7 @@ class Employee(models.Model):
 
 class EmployeeAssign(models.Model):  
     task = models.ForeignKey(TaskModel, on_delete=models.CASCADE)
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ManyToManyField(Employee, blank=True)
     assigned_date = models.DateTimeField(auto_now_add=True) 
 
     def __str__(self):
